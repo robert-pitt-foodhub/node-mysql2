@@ -1,5 +1,44 @@
 # Changelog
 
+## [3.12.0](https://github.com/robert-pitt-foodhub/node-mysql2/compare/v3.11.2...v3.12.0) (2024-09-11)
+
+
+### Features
+
+* add jsonStrings option ([#2642](https://github.com/robert-pitt-foodhub/node-mysql2/issues/2642)) ([9820fe5](https://github.com/robert-pitt-foodhub/node-mysql2/commit/9820fe51b48cadd48024956e62d9fceac2e5a880))
+* fully support VECTOR type results ([9576742](https://github.com/robert-pitt-foodhub/node-mysql2/commit/9576742f56f234ac50bfd099bc84c8f593971e74))
+* introduce typeCast for `execute` method ([#2398](https://github.com/robert-pitt-foodhub/node-mysql2/issues/2398)) ([baaa92a](https://github.com/robert-pitt-foodhub/node-mysql2/commit/baaa92a228d32012f7da07826674f7a736e3791d))
+* **perf:** cache iconv decoder ([#2391](https://github.com/robert-pitt-foodhub/node-mysql2/issues/2391)) ([b95b3db](https://github.com/robert-pitt-foodhub/node-mysql2/commit/b95b3dbe4bb34e36d0d1be6948e4d8a169d28eed))
+
+
+### Bug Fixes
+
+* add condition which allows code in callback to be reachable ([#2376](https://github.com/robert-pitt-foodhub/node-mysql2/issues/2376)) ([8d5b903](https://github.com/robert-pitt-foodhub/node-mysql2/commit/8d5b903f5c24ef6378d4aa98d3fd4e13d39be4db))
+* binary parser sometimes reads out of packet bounds when results contain null and typecast is false ([#2601](https://github.com/robert-pitt-foodhub/node-mysql2/issues/2601)) ([705835d](https://github.com/robert-pitt-foodhub/node-mysql2/commit/705835d06ff437cf0bf3169dac0a5f68002c4f87))
+* **cache:** improve cache key serialization ([#2424](https://github.com/robert-pitt-foodhub/node-mysql2/issues/2424)) ([0d54b0c](https://github.com/robert-pitt-foodhub/node-mysql2/commit/0d54b0ca6498c823098426038162ef10df02c818))
+* **connection config:** remove keepAliveInitialDelay default value ([#2712](https://github.com/robert-pitt-foodhub/node-mysql2/issues/2712)) ([688ebab](https://github.com/robert-pitt-foodhub/node-mysql2/commit/688ebab84961ae82863f811fa772cfd26fbadc0e))
+* **createPoolCluster:** add pattern and selector to promise-based `getConnection` ([#3017](https://github.com/robert-pitt-foodhub/node-mysql2/issues/3017)) ([ab7c49f](https://github.com/robert-pitt-foodhub/node-mysql2/commit/ab7c49f24fad7b241cdc0046ead9917bbddccced)), closes [#1381](https://github.com/robert-pitt-foodhub/node-mysql2/issues/1381)
+* **docs:** improve the contribution guidelines ([#2552](https://github.com/robert-pitt-foodhub/node-mysql2/issues/2552)) ([8a818ce](https://github.com/robert-pitt-foodhub/node-mysql2/commit/8a818ce0f30654eba854759e6409c0ac856fc448))
+* handshake SSL error with AWS RDS ([#2857](https://github.com/robert-pitt-foodhub/node-mysql2/issues/2857)) ([de071bb](https://github.com/robert-pitt-foodhub/node-mysql2/commit/de071bb1d7738693793ff3ea24d5f933f6fa4792))
+* resolve LRU conflicts, cache loss and premature engine breaking change ([#2988](https://github.com/robert-pitt-foodhub/node-mysql2/issues/2988)) ([2c3c858](https://github.com/robert-pitt-foodhub/node-mysql2/commit/2c3c858fd0425b29f488a7cd24df749539c93aa2))
+* revert breaking change in results creation ([#2591](https://github.com/robert-pitt-foodhub/node-mysql2/issues/2591)) ([f7c60d0](https://github.com/robert-pitt-foodhub/node-mysql2/commit/f7c60d01a49666130f51d3847ccfdd3d6e3d33e9))
+* **security:** improve results object creation ([#2574](https://github.com/robert-pitt-foodhub/node-mysql2/issues/2574)) ([4a964a3](https://github.com/robert-pitt-foodhub/node-mysql2/commit/4a964a3910a4b8de008696c554ab1b492e9b4691))
+* **security:** improve supportBigNumbers and bigNumberStrings sanitization ([#2572](https://github.com/robert-pitt-foodhub/node-mysql2/issues/2572)) ([74abf9e](https://github.com/robert-pitt-foodhub/node-mysql2/commit/74abf9ef94d76114d9a09415e28b496522a94805))
+* **security:** sanitize fields and tables when using nestTables ([#2702](https://github.com/robert-pitt-foodhub/node-mysql2/issues/2702)) ([efe3db5](https://github.com/robert-pitt-foodhub/node-mysql2/commit/efe3db527a2c94a63c2d14045baba8dfefe922bc))
+* **security:** sanitize timezone parameter value to prevent code injection ([#2608](https://github.com/robert-pitt-foodhub/node-mysql2/issues/2608)) ([7d4b098](https://github.com/robert-pitt-foodhub/node-mysql2/commit/7d4b098c7e29d5a6cb9eac2633bfcc2f0f1db713))
+* setMaxParserCache throws TypeError ([#2757](https://github.com/robert-pitt-foodhub/node-mysql2/issues/2757)) ([aa8604a](https://github.com/robert-pitt-foodhub/node-mysql2/commit/aa8604a32b28c2024da006edce30d88ad22d8a06))
+* **stream:** premature close when it is paused ([#2416](https://github.com/robert-pitt-foodhub/node-mysql2/issues/2416)) ([7c6bc64](https://github.com/robert-pitt-foodhub/node-mysql2/commit/7c6bc642addb3e6fee1b1fdc84f83a72ff11ca4a))
+* **stream:** premature close when using `for await` ([#2389](https://github.com/robert-pitt-foodhub/node-mysql2/issues/2389)) ([af47148](https://github.com/robert-pitt-foodhub/node-mysql2/commit/af4714845603f70e3c1ef635f6c0750ff1987a9e))
+* **stream:** reads should emit the dataset number for each dataset ([#2628](https://github.com/robert-pitt-foodhub/node-mysql2/issues/2628)) ([4dab4ca](https://github.com/robert-pitt-foodhub/node-mysql2/commit/4dab4cad2c3b9b165d6118636a179b5443e50442))
+* support deno + caching_sha2_password FULL_AUTHENTICATION_PACKET flow ([#2704](https://github.com/robert-pitt-foodhub/node-mysql2/issues/2704)) ([2e03694](https://github.com/robert-pitt-foodhub/node-mysql2/commit/2e0369445ba1581b427f78689a935ac3debfbf07))
+* The removeIdleTimeoutConnectionsTimer did not clean up when the … ([#2384](https://github.com/robert-pitt-foodhub/node-mysql2/issues/2384)) ([18a44f6](https://github.com/robert-pitt-foodhub/node-mysql2/commit/18a44f6a0a0b7ef41cc874d7a7bb2d3db83ea533))
+* **typeCast:** ensure the same behavior for `field.string()` with `query` and `execute` ([#2820](https://github.com/robert-pitt-foodhub/node-mysql2/issues/2820)) ([27e38ea](https://github.com/robert-pitt-foodhub/node-mysql2/commit/27e38ea3f084f445a8e5a4909341b5e740bdf474))
+* **types:** add missing types to TypeCast ([#2390](https://github.com/robert-pitt-foodhub/node-mysql2/issues/2390)) ([78ce495](https://github.com/robert-pitt-foodhub/node-mysql2/commit/78ce4953e9c66d6cf40ffc2d252fa3701a2d4fe2))
+* **types:** expose TypeCast types ([#2425](https://github.com/robert-pitt-foodhub/node-mysql2/issues/2425)) ([336a7f1](https://github.com/robert-pitt-foodhub/node-mysql2/commit/336a7f1259c63d2dfe070fe400b141e89255844e))
+* **types:** support encoding for string type cast ([#2407](https://github.com/robert-pitt-foodhub/node-mysql2/issues/2407)) ([1dc2011](https://github.com/robert-pitt-foodhub/node-mysql2/commit/1dc201144daceab0b12193ada0f13dbb25e917f6))
+* **typings:** typo from `jonServerPublicKey` to `onServerPublicKey` ([#2699](https://github.com/robert-pitt-foodhub/node-mysql2/issues/2699)) ([8b5f691](https://github.com/robert-pitt-foodhub/node-mysql2/commit/8b5f6911b69b766a3732fa160049d263460da74b))
+* update connection cleanup process to handle expired connections and exceeding `config.maxIdle` ([#3022](https://github.com/robert-pitt-foodhub/node-mysql2/issues/3022)) ([b091cf4](https://github.com/robert-pitt-foodhub/node-mysql2/commit/b091cf49d4165e991cb7c51dd6074be1c996a98e))
+
 ## [3.11.2](https://github.com/sidorares/node-mysql2/compare/v3.11.1...v3.11.2) (2024-09-11)
 
 
